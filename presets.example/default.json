@@ -1,0 +1,8 @@
+{
+  "name": "<person>",
+  "languages": ["es", "en"],
+  "home_first": true,
+  "cloud_chain": ["nvidia", "gemini"],
+  "cloud_consent": "ask",
+  "notes": "Placeholders only. The real file goes in presets/<person>/preset.json, which git ignores."
+}

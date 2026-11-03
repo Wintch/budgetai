@@ -1,0 +1,133 @@
+#!/usr/bin/env python3
+"""Cheap offline checks for the playbooks in docs/ (section 7 of docs/STANDARDS.md), stdlib only.
+
+  python3 tools/check_docs.py            check every docs/*.md, print problems, exit 1 on errors
+  python3 tools/check_docs.py --index    also (re)write docs/INDEX.md from the front-matter
+  python3 tools/check_docs.py --today 2027-03-01   pretend today is that date (stale check)
+
+Errors: missing or invalid front-matter, bad dates, expires <= as_of, duplicate ids.
+Warnings: past `expires` (stale), no source with a `read_on` date, no official source, likely non-English text.
+Personal data is NOT checked here: that is tools/privacy_scan.sh.
+"""
+import argparse, datetime as dt, re, sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+REQUIRED = ["id", "title", "audience", "language", "as_of", "expires", "status"]
+STATUS = {"draft", "reviewed", "stale"}
+AUDIENCE = {"person", "helper"}
+SPANISH = re.compile(r"\b(el|los|las|que|para|con|una|por|pero|porque|cuando|tambien|también|estoy|tengo)\b", re.I)
+
+
+def split_front_matter(text):
+    if not text.startswith("---\n"):
+        return None, text
+    end = text.find("\n---\n", 4)
+    if end < 0:
+        return None, text
+    return text[4:end], text[end + 5:]
+
+
+def parse(fm):
+    """Tiny parser for the flat YAML used here: `key: value`, `key: [a, b]`, and `key:` followed by `- {..}` items."""
+    out, key = {}, None
+    for raw in fm.splitlines():
+        if not raw.strip() or raw.lstrip().startswith("#"):
+            continue
+        if raw.startswith("  - ") or raw.startswith("- "):
+            if key is not None:
+                out.setdefault(key, []).append(raw.split("- ", 1)[1].strip())
+            continue
+        m = re.match(r"^([A-Za-z_]+):\s*(.*?)\s*(#.*)?$", raw)
+        if not m:
+            continue
+        key, val = m.group(1), m.group(2)
+        if val == "":
+            out[key] = []
+        elif val.startswith("[") and val.endswith("]"):
+            out[key] = [v.strip().strip('"\'') for v in val[1:-1].split(",") if v.strip()]
+            key = None
+        else:
+            out[key] = val.strip('"\'')
+            key = None
+    return out
+
+
+def check(path, today):
+    errors, warnings = [], []
+    text = path.read_text(encoding="utf-8")
+    fm, body = split_front_matter(text)
+    if fm is None:
+        return None, ["no front-matter"], []
+    meta = parse(fm)
+    for k in REQUIRED:
+        if not meta.get(k):
+            errors.append(f"missing `{k}`")
+    if meta.get("status") and meta["status"] not in STATUS:
+        errors.append(f"status `{meta['status']}` not in {sorted(STATUS)}")
+    if meta.get("audience") and meta["audience"] not in AUDIENCE:
+        errors.append(f"audience `{meta['audience']}` not in {sorted(AUDIENCE)}")
+    if meta.get("id") and meta["id"] != re.sub(r"[^a-z0-9-]", "", meta["id"]):
+        errors.append("id must be lowercase letters, digits and hyphens")
+    dates = {}
+    for k in ("as_of", "expires"):
+        try:
+            dates[k] = dt.date.fromisoformat(meta.get(k, ""))
+        except ValueError:
+            errors.append(f"`{k}` is not an ISO date")
+    if len(dates) == 2 and dates["expires"] <= dates["as_of"]:
+        errors.append("expires must be later than as_of")
+    if "expires" in dates and dates["expires"] < today:
+        warnings.append(f"STALE: expired {dates['expires']}")
+    sources = meta.get("sources", [])
+    if not sources:
+        warnings.append("no sources listed")
+    else:
+        if not any("read_on" in s for s in sources):
+            warnings.append("no source with a read_on date")
+        if not any("official" in s for s in sources):
+            warnings.append("no official source")
+    spanish_lines = sum(1 for ln in body.splitlines() if len(SPANISH.findall(ln)) >= 3)
+    if spanish_lines > 2:
+        warnings.append(f"{spanish_lines} lines look Spanish (the repo is English)")
+    return meta, errors, warnings
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--index", action="store_true")
+    ap.add_argument("--today", default=dt.date.today().isoformat())
+    a = ap.parse_args(argv)
+    today = dt.date.fromisoformat(a.today)
+    rows, ids, bad = [], {}, 0
+    for p in sorted((ROOT / "docs").glob("*.md")):
+        if p.name == "INDEX.md":
+            continue
+        meta, errors, warnings = check(p, today)
+        if meta and meta.get("id"):
+            if meta["id"] in ids:
+                errors.append(f"duplicate id (also {ids[meta['id']]})")
+            ids[meta["id"]] = p.name
+        for e in errors:
+            print(f"ERROR   {p.name}: {e}")
+        for w in warnings:
+            print(f"warning {p.name}: {w}")
+        bad += bool(errors)
+        if meta:
+            rows.append((p.name, meta))
+    print(f"{len(rows)} docs, {bad} with errors")
+    if a.index:
+        lines = ["# Documentation index", "",
+                 "Generated by `python3 tools/check_docs.py --index` from the front-matter of each page. Do not edit by hand.",
+                 "Every page carries `as_of`, `expires` and `status`: a page past `expires` is stale and must be re-checked before it is quoted.", "",
+                 "| page | title | audience | topics | status | as of | expires |", "|---|---|---|---|---|---|---|"]
+        for name, m in rows:
+            lines.append(f"| [{name}]({name}) | {m.get('title', '')} | {m.get('audience', '')} | {', '.join(m.get('topics', []))} | "
+                         f"{m.get('status', '')} | {m.get('as_of', '')} | {m.get('expires', '')} |")
+        (ROOT / "docs" / "INDEX.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+        print("wrote docs/INDEX.md")
+    return 1 if bad else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

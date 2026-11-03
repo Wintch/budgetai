@@ -1,0 +1,14 @@
+# A person's own presets (system prompt, profile, memory layout) hold personal data: never tracked. Only presets.example/ is.
+presets/
+# The operator's own cost notes (bills, amounts): never tracked.
+private/
+# Local assistant file: imports AGENTS.md and holds the operator's private rules. AGENTS.md is the public guide.
+CLAUDE.md
+*.env
+.env*
+__pycache__/
+*.pyc
+*.bak-*
+
+# Third-party clones (pinned in tools/arca/VENDOR.md): never tracked.
+vendor/

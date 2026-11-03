@@ -1,0 +1,18 @@
+{
+  "as_of": "2026-08-01",
+  "source": "https://www.arca.gob.ar/monotributo/categorias.asp",
+  "note": "Read 2026-11-02 through a summarising web fetch of the official table ('valores de aplicacion desde el 1/08/2026'). Verify against the page before relying on it; amounts change every semester. 'total_*' is integrated tax + pension + health-insurance contribution (province-of-Buenos-Aires provincial part not shown here).",
+  "categories": {
+    "A": {"cap": 12009410.45, "total_services": 49527.18, "total_goods": 49527.18},
+    "B": {"cap": 17595182.74, "total_services": 56379.08, "total_goods": 56379.08},
+    "C": {"cap": 24670494.31, "total_services": 66020.12, "total_goods": 64530.58},
+    "D": {"cap": 30628651.43, "total_services": 84612.93, "total_goods": 82564.81},
+    "E": {"cap": 36028231.33, "total_services": 119811.45, "total_goods": 108267.51},
+    "F": {"cap": 45151659.41, "total_services": 150784.21, "total_goods": 129930.65},
+    "G": {"cap": 53995798.87, "total_services": 230312.94, "total_goods": 158815.05},
+    "H": {"cap": 81924660.37, "total_services": 522706.68, "total_goods": 317895.01},
+    "I": {"cap": 91699761.90, "total_services": 963747.86, "total_goods": 474992.78},
+    "J": {"cap": 105012519.20, "total_services": 1167299.76, "total_goods": 580793.69},
+    "K": {"cap": 126610838.75, "total_services": 1614446.04, "total_goods": 702103.24}
+  }
+}

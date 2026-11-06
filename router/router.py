@@ -2,7 +2,7 @@
 """router -- "local first" in front of Hermes: the home model answers, the cloud only when needed, always announced.
 
 Hermes's primary model is this router (`model.provider custom`, `model.default local-first`,
-`model.base_url http://127.0.0.1:8650/v1`). It runs inside each Hermes container (started by start_hermes.sh), so
+`model.base_url http://127.0.0.1:8650/v1`). It runs inside each Hermes container (started by bridgeai's `aibridge/start_hermes.sh`), so
 every person's keys stay in their own container.
 
 Per turn (the person's message plus the tool calls that follow it), decided once and kept for the whole turn:
@@ -25,7 +25,7 @@ A picture is the exception that needs no question of its own: Hermes's vision ca
 `gateway video` cannot show a 🔒, so with the home model out they use a cloud vision model (VISION_CLOUD) on the person's earlier
 consent, a live "siempre" or a consented cloud turn less than ROUTER_SUBAGENT_GRACE ago (operator, 2026-10-18: "una sola vez está
 bien"); without it they get a 503 that tells the person to say "usá la nube" and send the picture again.
-Hermes's own fallback chain must be empty for a router stack (model_guard does it), or it would bypass consent.
+Hermes's own fallback chain must be empty for a router stack (bridgeai's `aibridge/ops/model_guard.py` does it), or it would bypass consent.
 
 What travels to the cloud (ROUTER_CLOUD_CONTEXT): "full" (default, the operator's choice) = the whole conversation;
 "recent:N" = the last N exchanges plus the question; "turn" = the current question only. Always the system prompt Hermes needs to
@@ -45,12 +45,12 @@ LOG = os.environ.get("GATEWAY_LOG", "/workdir/.gateway-log.jsonl")
 HERMES_ENV = os.path.join(os.environ.get("HERMES_HOME", "/root/.hermes"), ".env")
 CONTEXT = os.environ.get("ROUTER_CLOUD_CONTEXT", "full")       # operator: "que sea todo", with consent
 STRIP_MEMORY = os.environ.get("ROUTER_STRIP_MEMORY", "1") == "1"
-# (name shown to the person, base url, model, key variable). Same preference as ops/lib/providers.py.
+# (name shown to the person, base url, model, key variable). Same preference as bridgeai's `aibridge/ops/lib/providers.py` (and providers.py here).
 CLOUD = [("NVIDIA nemotron-3-super", "https://integrate.api.nvidia.com/v1", "nvidia/nemotron-3-super-120b-a12b", "NVIDIA_API_KEY"),
          ("NVIDIA gpt-oss-20b", "https://integrate.api.nvidia.com/v1", "openai/gpt-oss-20b", "NVIDIA_API_KEY"),
          ("Gemini flash-lite", "https://generativelanguage.googleapis.com/v1beta/openai", "gemini-3.5-flash-lite", "GEMINI_API_KEY")]
 # Models that read an image, for Hermes's vision call and `gateway video` when the home model is out (all three answered 200 with
-# an image in ops/model_menu.py's probe on 2026-10-18). The person's one cloud consent covers the image too (operator, 2026-10-18).
+# an image in bridgeai's `aibridge/ops/model_menu.py` probe on 2026-10-18). The person's one cloud consent covers the image too (operator, 2026-10-18).
 VISION_CLOUD = [("NVIDIA nemotron-3-nano-omni", "https://integrate.api.nvidia.com/v1", "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning", "NVIDIA_API_KEY"),
                 ("NVIDIA gemma-4-31b", "https://integrate.api.nvidia.com/v1", "google/gemma-4-31b-it", "NVIDIA_API_KEY"),
                 ("Gemini flash-lite", "https://generativelanguage.googleapis.com/v1beta/openai", "gemini-3.5-flash-lite", "GEMINI_API_KEY")]

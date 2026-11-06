@@ -36,7 +36,7 @@ CATALOG = [
 ]
 
 
-# Candidates for the /model menu (Telegram picker and dashboard), shown in this order. ops/model_menu.py probes each
+# Candidates for the /model menu (Telegram picker and dashboard), shown in this order. bridgeai's `aibridge/ops/model_menu.py` probes each
 # one the way Hermes calls it (one tool defined; an image too for vision=True) and lists only what answers 200, so a
 # model that needs credit the person does not have never shows up. (provider, model, vision, slow) -- slow = probe at
 # most every 6 h: OpenRouter :free shares one 50 requests/day cap per key, Gemini free tier has tiny daily quotas.

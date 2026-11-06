@@ -6,6 +6,14 @@ A collection of **how things are done**: practical playbooks and small offline t
 
 > Information, not advice. Every page says what it read, when, and what it could not verify. Tax, legal and money decisions are yours (or a professional's); the pages tell you where to check and what to ask.
 
+## Integration side: a module for Hermes
+
+budgetai is built to plug into a **Hermes Agent**, the personal assistant that [`bridgeai`](https://github.com/Wintch/bridgeai) deploys (one private agent per person, with its own memory and keys). In that picture this repo is the **knowledge base and the skills**, not a set of loose scripts: the playbooks are what the agent reads and quotes (each page with its sources, dates and what is unverified), the tools are what a skill calls so that a number comes from a script and not from the model, and the router and `providers.py` are the cost side between the agent and the models. The skill layout is in `docs/STANDARDS.md` section 6.
+
+It also **runs standalone**: read the pages, run the checks and the offline tools with no agent and no model. Nothing here needs Hermes; Hermes just makes it conversational.
+
+The router also exists in bridgeai (`aibridge/router.py`, the live one). This copy **has diverged** and has not been reconciled; treat bridgeai's as the deployed one.
+
 ## Where to start
 
 - **`docs/INDEX.md`**: every playbook with topic, status and expiry date (generated from each page's front-matter). A page past its `expires` date is stale and must be re-checked before it is quoted.

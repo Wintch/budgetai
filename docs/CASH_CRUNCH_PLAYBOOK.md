@@ -6,7 +6,8 @@ country: AR
 region: ""
 language: en
 topics: [cash-crunch, debt, utilities, priorities]
-sources: []
+sources:
+  - {name: "Naturgy BAN, conditions of the e-mail bill service (F@ctura), 2023 PDF", url: "https://cloudstorage.embluemail.com/clientes/GasNatural/2023_CONDICIONES_DEL_SERVICIO_DE_FACTURA_POR_EMAIL_CI.pdf", kind: official, read_on: 2026-11-06}
 as_of: 2026-10-20
 expires: 2027-04-18
 status: draft
@@ -141,3 +142,11 @@ A vehicle that sits idle still costs money every month (insurance, tax, parking,
 ## 16. Leaving a paid accountant for a routine regime
 - Order: log in with your own key; **delegate** the services the accountant needs in the relations service; **change the key**; export the issued invoices; ask in writing for the current category, what was filed in the last windows and the registered activities; only then agree the last payment (`MONOTRIBUTO_DIY.md` s.4).
 - An official API exists for invoicing and registry data (digital certificate, `GOV_LOOKUPS.md` s.1); none for the monthly quota or the current account: pay by direct debit and a calendar.
+
+## 17. Gas: the cut is the hardest one to undo
+- Of the household utilities, **gas is the one to protect first**. Reconnection after a cut is not just paying the arrears: the distributor typically requires a **pressure test (tightness test) of the internal installation** by a licensed gas fitter, and if it fails, **nothing is reconnected until the leak is repaired** and the test is passed. So a cut can turn a bill into a repair bill plus fees plus days without service.
+- Order: pay or agree a plan **before** the cut date (`s.3`); keep the receipts; if a cut is already scheduled, ask the distributor in writing what the reconnection requires (test, fitter, fees, timing).
+- A cheap precaution while still connected: have a licensed fitter check the installation, so a failed test is not discovered on the day of a reconnection.
+- **Alternative: go all-electric.** One reported case (a friend of the operator, anecdotal) found it cheaper to give up gas and switch to electricity than to restore the connection. It is not free either: electric cooking and heating are expensive per unit of energy, and the **home wiring has to be measured** (cable section and breaker sized for the new load, ideally by a licensed electrician), otherwise it is a fire risk. Compare: the reconnection cost against the appliances, the electrician's work and the higher electricity bill (`s.9`, seasonality).
+- Not verified: the exact requirements, fees and steps vary by distributor and province; read them on the distributor's and the regulator's official pages (`PORTALS.md`) before relying on this section. The "cheaper to go electric" case is one anecdote, not a rule.
+- **A bill that never arrives is not a bill that is not due.** One gas distributor (read 2026-11-06, its e-bill conditions) offers a free e-mail bill: once the account holder enrols, the **paper bill stops** and the PDF link goes to the holder's e-mail from a no-reply sender (check spam and blocked senders). Terms say the holder can switch back at any time (paper returns from the next issue), the paper copy stays available at the distributor's service centres, and not receiving the e-mail does not cancel the enrolment. If you rent and the account is in the landlord's name, **ask the landlord whether the bill now goes to their e-mail** (a guess, not confirmed) and get the amount and payment code from the web office, the app or the service centre rather than waiting for paper.

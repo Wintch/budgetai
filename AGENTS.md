@@ -26,6 +26,7 @@ This repository is a toolkit and a library of personal-finance playbooks, Argent
 - **Read-only first.** Anything that pays, files, delegates, reassigns or submits is done by the user, not by a script holding their credentials. No browser or portal session is opened without asking.
 - **Cheapest first**: scripts and data before a model; a model only to phrase an answer, never to invent a number, a link or a contact.
 - **Information, not advice**: tax, legal and medical topics give official links and questions to ask a professional.
+- **Author e-mail**: git publishes the author and committer e-mail of every commit in a public repo. Use the platform's `noreply` address (on GitHub, `ID+username@users.noreply.github.com`, with "Keep my email addresses private" and "Block command line pushes that expose my email" turned on), never a personal address. Rewriting history afterwards does not remove copies already cloned or cached.
 - Commit only when asked. Never push unless asked.
 
 ## Commit attribution (several AIs work here)

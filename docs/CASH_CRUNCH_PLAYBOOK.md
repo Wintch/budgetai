@@ -81,6 +81,7 @@ mark what is calculated versus what was said.
 - Ask for the **lowest plan** of each service: the cheapest tier plus a renewed discount can cost far less than the first retention offer (here under half).
 - "Today only" offers from a competitor to port a line are the same shape: a temporary discount on a high list price. Compare the **net monthly change** against what you already pay (including bonuses you would lose and any fixed discount on the other service) and the list price after the promo. If the gain is small, the offer is not worth the move.
 - When the bot and the bill disagree (a different discount rate or end date), trust neither until you see the contract or the app.
+- **An unpaid bill usually comes back inside the next one.** The next bill carries the overdue amount plus the new month, and a service is typically cut when that next bill is also left unpaid (a person's report for internet and mobile providers; not verified, the rule differs by company). Before the next bill arrives, ask the provider in writing for the cut date, whether a partial payment or a payment plan is accepted, the interest, and the reconnection fee and delay. If not everything can be paid, pay the service you cannot work without first and let the backup one wait.
 - Before cutting a link that hosts something, inventory what depends on it: DNS records, port forwards, firewall rules, allow-lists, monitoring
   that tests from outside, scripts that name its address. Move each, test from outside, and only then switch the link off.
 

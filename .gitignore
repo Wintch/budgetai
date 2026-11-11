@@ -12,3 +12,6 @@ __pycache__/
 
 # Third-party clones (pinned in tools/arca/VENDOR.md): never tracked.
 vendor/
+
+# Local sale flyers: they carry the operator's phone number and personal items. Never tracked.
+sell/

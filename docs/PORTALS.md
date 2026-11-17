@@ -37,7 +37,7 @@ Rule that comes first: **never use a browser, log in or enter a person's data wi
 | tax | tax agency current-account and payments services | what is owed, payment voucher | tax id + fiscal key | T3 | pay by hand |
 | tax | province tax agency (vehicle and property taxes) | local taxes | web | T3 | find the current address; not mapped yet |
 | credit | central bank debtor-registry API | a person's reported financing and days overdue, by tax id | free, **no credentials**, traffic limits per IP; the official manual is a PDF in the bank's catalogue | **T1** | only for the user's **own** id; verify the endpoint path in the manual. Third-party client libraries exist. Cheap way to see one's own credit status |
-| fines | province fines lookup | fines by plate or ID | reCAPTCHA | T3 | `TRAFFIC_FINES.md` |
+| fines | province fines lookup | fines by plate or ID | reCAPTCHA | T3 | bridgeai `aibridge/vehiculos/fines-and-points.md` |
 | fines | City fines lookup | fines by plate or ID | address unstable | T3 | find the current page |
 | fines | national road-safety lookup | fines in adhered jurisdictions | web | T3 / T2? | a provincial fine did not show there in one case |
 | fines | the province's published fixed-unit (UF) value | the value of the unit, updated every two months | a public page | **T2** | worth a tracker: it drives the cost of every fine |

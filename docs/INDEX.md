@@ -25,5 +25,3 @@ Every page carries `as_of`, `expires` and `status`: a page past `expires` is sta
 | [PRIOR_ART.md](PRIOR_ART.md) | Prior art: are we reinventing the wheel? (general) | helper | prior-art, research | draft | 2026-10-20 | 2027-04-18 |
 | [QUICK_INCOME_PLAYBOOK.md](QUICK_INCOME_PLAYBOOK.md) | Quick-entry income and the hand-off to the job search (general) | person | income, gig-work, licences | draft | 2026-10-20 | 2027-04-18 |
 | [STANDARDS.md](STANDARDS.md) | Repo standards: one format for playbooks, records and tools (general) | helper | standards, format, checks | draft | 2026-10-20 | 2027-04-18 |
-| [TRAFFIC_FINES.md](TRAFFIC_FINES.md) | Traffic fines in Argentina: where to check, how they are calculated, how to pay the least (general) | person | fines, transport, legal | draft | 2026-10-19 | 2027-04-17 |
-| [VEHICLE_OWNERSHIP_AR.md](VEHICLE_OWNERSHIP_AR.md) | Owning a car in Argentina: mandatory insurance, inspection, licence, fines (general) | person | car, insurance, inspection, costs | draft | 2026-10-20 | 2027-04-18 |

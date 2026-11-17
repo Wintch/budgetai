@@ -119,12 +119,11 @@ against the amount due, and keep only what moves that number. A good test: how m
 
 ## 13. A vehicle you do not use
 
-A vehicle that sits idle still costs money every month (insurance, tax, parking, maintenance). Before cancelling anything:
-- Compare **N months of premium** with the one-off cost of making the vehicle insurable again (an expired inspection can block a new policy: the cancel-and-lose-cover trap).
-- Ask the insurer, in writing: can the policy be **suspended**, is there a cheaper **parked-vehicle cover** (theft and fire), and can third-party cover be **reactivated without a new inspection**?
-- Check the inspection price and rules for your jurisdiction; going to the plant with an expired inspection can itself be an infraction.
-- The legal minimum is the mandatory third-party insurance (`VEHICLE_OWNERSHIP_AR.md`); the owner answers for damage the car causes even while parked (a storm, a roll), so cancelling a policy is a risk decision, not only a saving.
-- If it will never be used again, selling it is the end of all the recurring costs; check for pending fines on the plate first.
+A vehicle that sits idle still costs money every month (insurance, tax, parking, maintenance). The car-specific steps moved to
+the vehicles guide of the sibling repo bridgeai (`aibridge/vehiculos/`, 2026-11-15): before cancelling a policy, insurance.md VEH-SEG-28 and 29 (compare N months of
+premium with the cost of becoming insurable again, the three written questions to the insurer, the expired-inspection trap);
+inspection rules, ownership-and-paperwork.md VEH-DOC-23 to 27; selling, VEH-DOC-13 onwards and fines-and-points.md VEH-MUL-39.
+For a cash crunch the point is only this: count the idle car's monthly cost in the list of what can be cut, and decide with those rules.
 
 
 ## 14. Work in exchange for rent, and rent clauses

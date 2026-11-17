@@ -34,7 +34,7 @@ Yes, but it covers invoicing and registry data, not a taxpayer's own debt or pay
 
 ## 2. Traffic fines
 
-Moved to its own guide: `TRAFFIC_FINES.md` (where to check, how the amount is calculated, laws and time limits, how to pay the least).
+Moved to the vehicles guide of the sibling repo bridgeai: `aibridge/vehiculos/fines-and-points.md` (where to check, how the amount is calculated, laws and time limits, how to pay the least; 2026-11-15).
 
 ## 3. Rule for any browser lookup
 

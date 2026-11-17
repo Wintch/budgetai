@@ -45,7 +45,7 @@ A licence is often the cheapest key to quick-entry work (delivery, messaging and
 | Old aggregator figure (5,000 to 15,000) | outdated | agency aggregator | ignore |
 
 - Steps in the usual order: the traffic-record certificate (CENAT), a medical/psychophysical check, a road-safety course with a theory exam, then a practical exam; book the appointment on the official platform.
-- **An unpaid traffic fine can block a licence renewal** (secondary source): check the plate and the holder's record before paying fees (`TRAFFIC_FINES.md`).
+- **An unpaid traffic fine can block a licence renewal** (secondary source): check the plate and the holder's record before paying fees (bridgeai `aibridge/vehiculos/fines-and-points.md`).
 - Which class a motorbike courier needs (usually A) and the waiting time for an appointment were **not found**: ask the issuing office.
 
 ## 4. Delivery and courier work: what the numbers say (read before choosing it)

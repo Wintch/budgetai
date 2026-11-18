@@ -11,7 +11,7 @@ Every page carries `as_of`, `expires` and `status`: a page past `expires` is sta
 | [ARTIST_SUPPORT_PLATFORMS.md](ARTIST_SUPPORT_PLATFORMS.md) | Fan support and tipping platforms for artists and creators: Cafecito and alternatives (general) | person | donations, creators, tips, payouts, platforms | draft | 2026-11-03 | 2027-02-03 |
 | [CANCEL_GUIDE.md](CANCEL_GUIDE.md) | Cancelling a paid AI subscription (Claude Pro) without paying one more cycle | person | cancel, subscriptions, consumer-rights | draft | 2026-10-19 | 2027-04-17 |
 | [CASH_CRUNCH_PLAYBOOK.md](CASH_CRUNCH_PLAYBOOK.md) | Cash-crunch playbook (general) | person | cash-crunch, debt, utilities, priorities | draft | 2026-10-20 | 2027-04-18 |
-| [CONVENIO_MULTILATERAL.md](CONVENIO_MULTILATERAL.md) | Convenio Multilateral gross-income returns for a small independent worker | person | convenio-multilateral, ingresos-brutos, sifere, cm03, cm05, monotributo | draft | 2026-11-02 | 2027-02-02 |
+| [CONVENIO_MULTILATERAL.md](CONVENIO_MULTILATERAL.md) | Convenio Multilateral gross-income returns for a small independent worker | person | convenio-multilateral, ingresos-brutos, sifere, cm03, cm05, monotributo | draft | 2026-11-18 | 2027-02-02 |
 | [COST_LADDER.md](COST_LADDER.md) | The cost ladder, and what is left to extract | helper | cost, architecture, ai-spend | draft | 2026-10-19 | 2027-04-17 |
 | [DATA_ARCHITECTURE.md](DATA_ARCHITECTURE.md) | Data architecture for the price planner: start small, grow by triggers (general) | helper | data, architecture, privacy | draft | 2026-10-20 | 2027-04-18 |
 | [FUNDING_LINKS.md](FUNDING_LINKS.md) | Funding button for a GitHub account: setup, platforms and Argentine tax notes (general) | helper | funding, donations | draft | 2026-11-03 | 2027-02-03 |

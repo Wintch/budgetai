@@ -68,6 +68,16 @@ The quota is due even with no work, and removal after 10 unpaid periods is the m
 
 Interest accrues daily on the debt; the system blocks procedures such as recategorisation while there are unpaid periods; a payment plan exists for monotributo debt (reported: available from the month the second unpaid quota falls due, once, via the current-account service or the plans service: **terms not verified**). Pay the oldest periods first and keep the monthly payment current.
 
-## 6. Not verified
+## 6. Proof that you are up to date (a client, a datacenter or a building asks for it)
 
-Current amounts and caps; whether recategorisation is mandatory for all or only for those who exceed; whether the provincial scheme is mandatory for every monotributista in the province; the other parameters of a category; the payment-plan terms; whether a municipal fee applies to a person who works from home.
+Written 2026-11-19 from a real request; **not read on the official pages**.
+
+- A paid **payment slip is not proof**: the slip (credencial de pago) is the bill. Proof is the receipt of the payment itself (the wallet, bank or voucher receipt, saved as PDF the moment you pay) or the agency's current-account page showing the payment as credited.
+- The registration certificate shows that you are registered, not that you are up to date.
+- A payment can take up to two business days to show in the current account; the receipt is immediate. Download the receipt when you pay.
+- Ask the requester **which month** (last paid or current) and whether a wallet receipt is enough. Some places also ask for an accident or work-risk insurance, which is a different document.
+- Never edit or recreate a receipt: it is a fraud risk and a document you cannot defend.
+
+## 7. Not verified
+
+Current amounts and caps; whether recategorisation is mandatory for all or only for those who exceed; whether the provincial scheme is mandatory for every monotributista in the province; the other parameters of a category; the payment-plan terms; what the current-account page prints and under which menu; whether a municipal fee applies to a person who works from home.
